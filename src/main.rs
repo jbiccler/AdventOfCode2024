@@ -5,7 +5,7 @@ use std::error::Error;
 use std::fs::{self};
 
 pub mod days;
-use days::{day01, day02, day03, day04, day05};
+use days::{day01, day02, day03, day04, day05, day06};
 
 fn get_day_fn(day: u32) -> impl Fn(&str) -> Result<(ReturnType, ReturnType), Box<dyn Error>> {
     match day {
@@ -14,6 +14,7 @@ fn get_day_fn(day: u32) -> impl Fn(&str) -> Result<(ReturnType, ReturnType), Box
         3 => day03::solve,
         4 => day04::solve,
         5 => day05::solve,
+        6 => day06::solve,
         _ => unimplemented!("Unsuppted day entered."),
     }
 }
