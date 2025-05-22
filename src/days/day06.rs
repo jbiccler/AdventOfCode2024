@@ -84,8 +84,6 @@ pub fn solve(contents: &str) -> Result<(ReturnType, ReturnType), Box<dyn Error>>
 
     let (pos, sum1) = places_visited(&data, start);
 
-    println!("First part: {}", sum1);
-
     // Second part
     // Only place obstructions on visited places and track if any obstruction is being hit from
     // the same direction multiple times, if so you are in a loop
@@ -109,7 +107,6 @@ pub fn solve(contents: &str) -> Result<(ReturnType, ReturnType), Box<dyn Error>>
         }
         data[x][y] = prev_data_value;
     }
-    println!("Second part: {}", sum2);
 
     Ok((
         ReturnType::UnsignedInteger(sum1 as u32),

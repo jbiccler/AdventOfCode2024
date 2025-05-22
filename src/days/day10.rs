@@ -20,12 +20,9 @@ pub fn solve(contents: &str) -> Result<(ReturnType, ReturnType), Box<dyn Error>>
         part2 += c.len();
     }
 
-    println!("Part 1: {}", part1);
-    println!("Part 2: {}", part2);
-
     Ok((
         ReturnType::UnsignedInteger(part1 as u32),
-        ReturnType::UnsignedInteger(part1 as u32),
+        ReturnType::UnsignedInteger(part2 as u32),
     ))
 }
 

@@ -5,9 +5,9 @@ pub fn solve(contents: &str) -> Result<(ReturnType, ReturnType), Box<dyn Error>>
     let (mut cs, filled, empty) = parse(contents);
     let mut i = filled.len() - 1;
     let stop = filled.len();
-    for e in empty{
+    for e in empty {
         if e >= stop {
-            break
+            break;
         }
         cs[e] = cs[filled[i]];
         cs[filled[i]] = -1;
@@ -15,14 +15,12 @@ pub fn solve(contents: &str) -> Result<(ReturnType, ReturnType), Box<dyn Error>>
     }
 
     let mut sum1 = 0;
-    for (i, &x) in cs.iter().enumerate(){
+    for (i, &x) in cs.iter().enumerate() {
         if x == -1 {
-            continue
+            continue;
         }
         sum1 += (i as u64) * (x as u64);
     }
-
-    println!("First part: {}", sum1);
 
     Ok((
         ReturnType::LongUnsignedInteger(sum1),
@@ -32,27 +30,27 @@ pub fn solve(contents: &str) -> Result<(ReturnType, ReturnType), Box<dyn Error>>
 
 fn parse(contents: &str) -> (Vec<i32>, Vec<usize>, Vec<usize>) {
     let mut cs: Vec<i32> = vec![];
-    let mut file = true; 
+    let mut file = true;
     let mut i = 0;
-    for c in contents.trim().chars(){
+    for c in contents.trim().chars() {
         let n = c.to_string().parse::<usize>().unwrap();
-        if file{
-            for _ in 0..n{
+        if file {
+            for _ in 0..n {
                 cs.push(i);
             }
-            i+=1;
+            i += 1;
             file = false;
         } else {
-            for _ in 0..n{
+            for _ in 0..n {
                 cs.push(-1);
             }
             file = true;
         }
     }
     // create vectors containing indices with full and empty spots
-    let mut filled : Vec<usize> = vec![];
-    let mut empty : Vec<usize> = vec![];
-    for (i,c) in cs.iter().enumerate(){
+    let mut filled: Vec<usize> = vec![];
+    let mut empty: Vec<usize> = vec![];
+    for (i, c) in cs.iter().enumerate() {
         match c {
             -1 => empty.push(i),
             _ => filled.push(i),

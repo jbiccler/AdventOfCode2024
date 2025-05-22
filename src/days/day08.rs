@@ -50,8 +50,6 @@ pub fn solve(contents: &str) -> Result<(ReturnType, ReturnType), Box<dyn Error>>
 
     let count1 = set1.len() as u32;
     let count2 = set2.len() as u32;
-    println!("First part: {}", count1);
-    println!("Second part: {}", count2);
 
     Ok((
         ReturnType::UnsignedInteger(count1),

@@ -47,7 +47,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let f = get_day_fn(day);
 
     let res = f(&contents)?;
-    println!("Part 1 {:?}", res.0);
-    println!("Part 2 {:?}", res.1);
+    println!("Part 1: {}", res.0);
+    println!("Part 2: {}", res.1);
     Ok(())
 }

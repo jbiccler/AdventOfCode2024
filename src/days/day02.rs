@@ -26,8 +26,6 @@ pub fn solve(contents: &str) -> Result<(ReturnType, ReturnType), Box<dyn Error>>
             count1 += 1;
         }
     }
-    println!("First part: {}", count1);
-
     // Part 2
     let mut count2: u32 = 0;
     for line in data.iter() {
@@ -46,7 +44,6 @@ pub fn solve(contents: &str) -> Result<(ReturnType, ReturnType), Box<dyn Error>>
         }
     }
 
-    println!("Second part: {}", count2);
     Ok((
         ReturnType::UnsignedInteger(count1),
         ReturnType::UnsignedInteger(count2),

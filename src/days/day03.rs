@@ -13,8 +13,6 @@ pub fn solve(contents: &str) -> Result<(ReturnType, ReturnType), Box<dyn Error>>
         })
         .sum();
 
-    println!("First part: {}", sum1);
-
     // part 2
     let pattern2 = Regex::new(r"(do\(\)|don't\(\)|mul\((\d+),(\d+)\))")?;
     let mut flag = true; // track do or don't state
@@ -31,7 +29,6 @@ pub fn solve(contents: &str) -> Result<(ReturnType, ReturnType), Box<dyn Error>>
             }
         }
     }
-    println!("Second part: {}", sum2);
     Ok((
         ReturnType::UnsignedInteger(sum1),
         ReturnType::UnsignedInteger(sum2),

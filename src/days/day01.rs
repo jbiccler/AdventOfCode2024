@@ -27,8 +27,6 @@ pub fn solve(contents: &str) -> Result<(ReturnType, ReturnType), Box<dyn Error>>
         sum1 += diff;
     }
 
-    println!("First part: {}", sum1);
-
     // Second part
     // Construct frequency map
     let mut map: HashMap<u32, u32> = HashMap::new();
@@ -37,7 +35,6 @@ pub fn solve(contents: &str) -> Result<(ReturnType, ReturnType), Box<dyn Error>>
     }
     let sum2 = first.iter().map(|x| x * map.get(x).unwrap_or(&0)).sum();
 
-    println!("Second part: {}", sum2);
     Ok((
         ReturnType::UnsignedInteger(sum1),
         ReturnType::UnsignedInteger(sum2),

@@ -113,10 +113,8 @@ pub fn solve(contents: &str) -> Result<(ReturnType, ReturnType), Box<dyn Error>>
 
     let lines = parse(contents);
     let sum1 = search_count(&lines, SEARCH_STRING);
-    println!("First part: {}", sum1);
 
     let sum2 = mas_cross_count(&lines);
-    println!("Second part: {}", sum2);
     Ok((
         ReturnType::UnsignedInteger(sum1),
         ReturnType::UnsignedInteger(sum2),

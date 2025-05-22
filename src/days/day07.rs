@@ -64,8 +64,6 @@ pub fn solve(contents: &str) -> Result<(ReturnType, ReturnType), Box<dyn Error>>
         }
     }
 
-    println!("First part: {}", sum1);
-    println!("Second part: {}", sum2);
     Ok((ReturnType::Long(sum1), ReturnType::Long(sum2)))
 }
 

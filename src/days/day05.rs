@@ -40,9 +40,6 @@ pub fn solve(contents: &str) -> Result<(ReturnType, ReturnType), Box<dyn Error>>
         }
     }
 
-    println!("First part: {}", sum1);
-    println!("Second part: {}", sum2);
-
     Ok((
         ReturnType::UnsignedInteger(sum1),
         ReturnType::UnsignedInteger(sum2),
