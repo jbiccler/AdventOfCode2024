@@ -21,7 +21,7 @@ fn get_day_fn(day: u32) -> impl Fn(&str) -> Result<(ReturnType, ReturnType), Box
         10 => day10::solve,
         11 => day11::solve,
         12 => day12::solve,
-
+        13 => day13::solve,
         _ => unimplemented!("Unsuppted day entered."),
     }
 }
