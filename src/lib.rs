@@ -1,4 +1,5 @@
 use std::fmt;
+use std::str::FromStr;
 
 #[derive(Debug, PartialEq)]
 pub enum ReturnType {
@@ -23,4 +24,40 @@ impl fmt::Display for ReturnType {
             Self::Boolean(val) => write!(f, "{}", val),
         }
     }
+}
+
+pub fn matrix_parse_whitespace<T>(contents: &str) -> Result<Vec<Vec<T>>, <T as FromStr>::Err>
+where
+    T: FromStr,
+{
+    let mut res: Vec<Vec<T>> = Vec::with_capacity(contents.trim().lines().count());
+    for line in contents.trim().lines() {
+        let mut row: Vec<T> = Vec::new();
+        for c in line.split_whitespace() {
+            match c.parse::<T>() {
+                Ok(parsed) => row.push(parsed),
+                Err(err) => return Err(err),
+            }
+        }
+        res.push(row);
+    }
+    Ok(res)
+}
+
+pub fn matrix_parse<T>(contents: &str) -> Result<Vec<Vec<T>>, <T as FromStr>::Err>
+where
+    T: FromStr,
+{
+    let mut res: Vec<Vec<T>> = Vec::with_capacity(contents.trim().lines().count());
+    for line in contents.trim().lines() {
+        let mut row: Vec<T> = Vec::new();
+        for c in line.chars() {
+            match c.to_string().parse::<T>() {
+                Ok(parsed) => row.push(parsed),
+                Err(err) => return Err(err),
+            }
+        }
+        res.push(row);
+    }
+    Ok(res)
 }

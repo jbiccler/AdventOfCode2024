@@ -111,8 +111,8 @@ mod tests {
     fn test_solver() {
         let (part1, part2) = solve(TEST_STRING).unwrap();
         if let (ReturnType::UnsignedInteger(d1), ReturnType::UnsignedInteger(d2)) = (part1, part2) {
-            assert_eq!(d1, 0);
-            assert_eq!(d2, 0);
+            assert_eq!(d1, 36);
+            assert_eq!(d2, 81);
         } else {
             panic!();
         }
